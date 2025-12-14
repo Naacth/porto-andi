@@ -18,24 +18,11 @@
             <a class="nav-link px-3 <?= url_is('aktivitas*') ? 'active fw-semibold text-primary' : ''; ?>" href="<?= base_url('/aktivitas'); ?>">Aktivitas</a>
         </li>
       </ul>
-      <?php if(session()->get('isLoggedIn')): ?>
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Admin Panel
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="<?= base_url('/admin'); ?>">Dashboard</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="<?= base_url('/admin/biodata'); ?>">Manage Biodata</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('/admin/aktivitas'); ?>">Manage Aktivitas</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('/admin/pendidikan'); ?>">Manage Pendidikan</a></li>
-            <li><hr class="dropdown-divider"></li>
-             <li><a class="dropdown-item text-danger" href="<?= base_url('/logout'); ?>">Logout</a></li>
-          </ul>
+        <li class="nav-item">
+            <!-- <a class="nav-link px-3 btn btn-primary text-white rounded-pill ms-lg-3 shadow-sm" href="<?= base_url('/login'); ?>">Login</a> -->
         </li>
       </ul>
-      <?php endif; ?>
     </div>
   </div>
 </nav>
