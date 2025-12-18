@@ -10,14 +10,22 @@ class Home extends BaseController
 {
     public function index()
     {
-        $biodataModel   = new BiodataModel();
+        $biodataModel    = new BiodataModel();
+        $pendidikanModel = new PendidikanModel();
+        $aktivitasModel  = new AktivitasModel();
+
+        // Get limits for dashboard
+        $recentPendidikan = $pendidikanModel->orderBy('tahun_lulus', 'DESC')->findAll(2);
+        $recentAktivitas  = $aktivitasModel->orderBy('tanggal', 'DESC')->findAll(5);
 
         $data = [
-            'title'      => 'Curriculum Vitae',
+            'title'      => 'Portfolio & Resume',
             'biodata'    => $biodataModel->first(),
+            'pendidikan' => $recentPendidikan,
+            'aktivitas'  => $recentAktivitas
         ];
 
-        return view('public/biodata', $data);
+        return view('public/index', $data);
     }
 
     public function pendidikan()
